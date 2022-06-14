@@ -1,8 +1,8 @@
 # Array
 
-Dikerjakan **tidak boleh menggunakan build-in function** seperti `forEach, map, filter, dll`. 
+⚠️⚠️⚠️**tidak boleh menggunakan build-in function seperti `forEach, map, filter, dll`**⚠️⚠️⚠️
 
-Jika sudah berhasil, boleh menggunakan build-in function yg tertera pada note
+Jika sudah berhasil menggunankan cara clasic (`for/while/do while`), boleh menerapkan build-in function yg tertera pada note
 
 ---
 ## Reverse Array
