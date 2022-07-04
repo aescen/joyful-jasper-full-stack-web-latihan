@@ -13,7 +13,6 @@ function Todo() {
 
   const handleClick = () => {
     setApiAction({
-      id: '',
       payload: { todo },
       action: 'add',
     })
@@ -62,11 +61,6 @@ function Todo() {
     checkApiAction();
   }, [apiAction])
 
-  /*  */
-
-  useEffect(() => {
-
-  }, [])
 
   return (
     <div>
