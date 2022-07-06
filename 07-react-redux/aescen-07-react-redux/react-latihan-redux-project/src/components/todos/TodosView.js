@@ -1,6 +1,12 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { addTodo, putTodo, deleteTodo } from './TodosSlice'
 import { useState } from 'react'
+import NoteIcon from '@mui/icons-material/Note';
+import AddIcon from '@mui/icons-material/Add';
+import Container from '@mui/material/Container';
+import Button from '@mui/material/Button'
+import TextField from '@mui/material/TextField'
+import InputAdornment from '@mui/material/InputAdornment';
 import List from './List';
 
 function TodoView() {
@@ -9,18 +15,22 @@ function TodoView() {
   const todos = useSelector((state) => state.todos.data)
   // states
   const [todo, setTodo] = useState('')
+
   // handlers
-  const handleChange = (ev) => setTodo(ev.target.value)
+  const handleChange = (ev) => {
+    setTodo(ev.target.value)
+  }
   const handleClick = () => {
-    dispatch(addTodo({
-      id: todos[todos.length - 1].id + 1,
-      todo,
-    }))
-    setTodo('')
-    console.log(todo)
+    if (todo.trim() !== '') {
+      dispatch(addTodo({
+        id: todos[todos.length - 1].id + 1,
+        todo: todo.trim(),
+      }))
+      setTodo('')
+    }
   }
   const handleKeyPress = (ev) => {
-    if (ev.key === "Enter") {
+    if (ev.key === 'Enter') {
       ev.preventDefault();
       handleClick();
     }
@@ -40,35 +50,48 @@ function TodoView() {
   }
 
   return (
-    <div>
+    <Container maxWidth='sm' sx={{ p: '24px' }}>
       <h1>Todos</h1>
-      <input
-        placeholder='a new todo'
-        type='text'
-        value={todo}
-        onChange={handleChange}
-        onKeyPress={handleKeyPress}
-        style={{ margin: '4px 4px 24px 4px', padding: '4px 8px' }}
-      />
-      <button
-        style={{ margin: '4px', padding: '4px 8px' }}
-        onClick={handleClick}
-      >
-        Add
-      </button>
-      <div style={{ textAlign: 'left' }}>
+      <Container maxWidth='sm'>
+        <TextField
+          label='Add todo'
+          variant='outlined'
+          size='small'
+          value={todo}
+          onChange={handleChange}
+          onKeyPress={handleKeyPress}
+          sx={{ margin: '0px 4px' }}
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <NoteIcon />
+              </InputAdornment>
+            ),
+          }}
+        />
+        <Button
+          variant='outlined'
+          size='large'
+          sx={{ margin: '0px 4px' }}
+          onClick={handleClick}
+          startIcon={<AddIcon />}
+        >
+          Add
+        </Button>
+      </Container>
+      <Container sx={{ textAlign: 'left' }}>
         {
           todos.map((item) => (
             <List
-              todo={item.todo}
+              todo={{ id: item.id, content: item.todo }}
               key={item.id}
               handleEdit={() => handleEdit(item.id)}
               handleDelete={() => handleDelete(item.id)}
             />
           ))
         }
-      </div>
-    </div>
+      </Container>
+    </Container>
   )
 }
 
