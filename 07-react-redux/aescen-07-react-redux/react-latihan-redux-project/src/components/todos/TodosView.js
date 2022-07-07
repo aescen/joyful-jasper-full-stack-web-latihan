@@ -50,7 +50,7 @@ function TodoView() {
   }
 
   return (
-    <Container maxWidth='sm' sx={{ p: '24px' }}>
+    <Container sx={{ p: '24px' }}>
       <h1>Todos</h1>
       <Container maxWidth='sm'>
         <TextField

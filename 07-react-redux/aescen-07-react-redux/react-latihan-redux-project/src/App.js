@@ -3,7 +3,7 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import Box from '@mui/material/Box'
+import Container from '@mui/material/Container';
 import './App.css'
 //import CakesView from './components/cakes/CakesView'
 //import UsersView from './components/users/UsersView';
@@ -18,11 +18,11 @@ const darkTheme = createTheme({
 function App() {
   return (
     <ThemeProvider theme={darkTheme}>
-      <Box className="App">
+      <Container maxWidth='sm' className="App">
         {/* <CakesView /> */}
         {/* <UsersView /> */}
         <TodosView />
-      </Box>
+      </Container>
     </ThemeProvider>
   )
 }
