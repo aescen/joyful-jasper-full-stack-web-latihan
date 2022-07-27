@@ -1,0 +1,23 @@
+/* * {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+} */
+
+.App-container {
+  background-color: #282c34;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  color: aliceblue;
+  align-items: center;
+  text-align: center;
+}
+
+.App.content {
+  flex: 1;
+}
+
+.App-footer {
+  bottom: 0;
+}

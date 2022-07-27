@@ -1,10 +1,10 @@
-import { useSelector, useDispatch } from 'react-redux'
-import { borrow } from './BooksSlice'
+import { useSelector, useDispatch } from "react-redux";
+import { borrow } from "./BooksSlice";
 
 function BooksView() {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  const books = useSelector((state) => state.books)
+  const books = useSelector((state) => state.books);
 
   return (
     <div>
@@ -13,7 +13,7 @@ function BooksView() {
       <p>Total authors: {books.totalAuthors}</p>
       <button onClick={() => dispatch(borrow())}>Borrow 1 book</button>
     </div>
-  )
+  );
 }
 
-export default BooksView
+export default BooksView;
