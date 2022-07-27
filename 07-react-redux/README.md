@@ -23,4 +23,7 @@ referensi https://redux-toolkit.js.org/tutorials/quick-start
 6. Buat komponen `Todo.js`, lalu ambil data store menggunakan `useSelector()` kemudian tampilkan
 
 ## 2.0
-1. 
+1. Buat action addTodo untuk menambahkan data todo baru
+2. Buat action deleteTodo untuk menghapus data todo berdasarkan id
+3. Buat action editTodo untuk mengubah data todo berdasarkan id
+
